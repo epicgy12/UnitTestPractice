@@ -18,3 +18,5 @@ within the container. If you change the code (and not the container
 configuration), you only need to repeat this command.
 
 `docker run -v "$(pwd)":/usr/src -it cpp-container`
+
+docker run -v `C:\Users\ipodc\OneDrive\Documents\GitHub\UnitTestPractice`:/usr/src -it cpp-container

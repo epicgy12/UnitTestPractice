@@ -24,47 +24,72 @@ TEST(PasswordTest, single_letter_password)  //TEST ( Name of test class, Descrip
 TEST(PasswordTest, two_letter_password)
 {
 	Password my_password;
-	ASSERT_EQ(2, my_password.count_leading_characters("yy"))
+	ASSERT_EQ(2, my_password.count_leading_characters("yy"));
 }
 
 TEST(PasswordTest, three_letter_password)
 {
 	Password my_password;
-	ASSERT_EQ(3, my_password.count_leading_characters("xxx"))
+	ASSERT_EQ(3, my_password.count_leading_characters("xxx"));
 }
 
 TEST(PasswordTest, four_letter_password)
 {
 	Password my_password;
-	ASSERT_EQ(4, my_password.count_leading_characters("wwww"))
+	ASSERT_EQ(4, my_password.count_leading_characters("wwww"));
 }
 
 TEST(PasswordTest, five_letter_password)
 {
 	Password my_password;
-	ASSERT_EQ(5, my_password.count_leading_characters("vvvvv"))
+	ASSERT_EQ(5, my_password.count_leading_characters("vvvvv"));
 }
 
 TEST(PasswordTest, five_letter_mixed_password)
 {
 	Password my_password;
-	ASSERT_EQ(1, my_password.count_leading_characters("abced"))
+	ASSERT_EQ(1, my_password.count_leading_characters("abced"));
 }
 
 TEST(PasswordTest, five_letter_tailing_password)
 {
 	Password my_password;
-	ASSERT_EQ(1, my_password.count_leading_characters("baaaa"))
+	ASSERT_EQ(1, my_password.count_leading_characters("baaaa"));
 }
 
 TEST(PasswordTest, long_password)
 {
 	Password my_password;
-	ASSERT_EQ(1, my_password.count_leading_characters("dkshblaihsdblfibhadsdljsdbhgilyubfviulhvjkdsnzul;iudhafjasbdilfuhds.fkjnsd.iujbas.diufbliadsubsdkjfb.asdufbilasdufb.,sdakjf.nasdkjufbiusaldbfsaldhbfuyadsbuflaysdh,bfasdkjbfiuladsb;uibgasdliufbyulasdhbfalsdkjfbilsaudbilfuasdhb,fjhb.fkuasbdlifuabsd.ubsdfasydlfiyasdguifa;shduifhsad.jkfh;asodiufh;asuidbf.sdubf"))
+	ASSERT_EQ(1, my_password.count_leading_characters("dkshblaihsdblfibhadsdljsdbhgilyubfviulhvjkdsnzul;iudhafjasbdilfuhds.fkjnsd.iujbas.diufbliadsubsdkjfb.asdufbilasdufb.,sdakjf.nasdkjufbiusaldbfsaldhbfuyadsbuflaysdh,bfasdkjbfiuladsb;uibgasdliufbyulasdhbfalsdkjfbilsaudbilfuasdhb,fjhb.fkuasbdlifuabsd.ubsdfasydlfiyasdguifa;shduifhsad.jkfh;asodiufh;asuidbf.sdubf"));
 }
 
 TEST(PasswordTest, long_char_password)
 {
 	Password my_password;
-	ASSERT_EQ(300, my_password.count_leading_characters("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+	ASSERT_EQ(300, my_password.count_leading_characters("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 }
+
+TEST(PasswordTest, empty_string_password)
+{
+	Password my_password;
+	ASSERT_EQ(0, my_password.count_leading_characters(""));
+}
+
+TEST(PasswordTest, has_mixed_case_T)
+{
+	Password my_password;
+	ASSERT_EQ(true, my_password.has_mixed_case("Password"));
+}
+
+TEST(PasswordTest, has_mixed_case_F)
+{
+	Password my_password;
+	ASSERT_EQ(false, my_password.has_mixed_case("password"));
+}
+
+TEST(PasswordTest, mixed_empty_string)
+{
+	Password my_password;
+	ASSERT_EQ(false, my_password.has_mixed_case(""));
+}
+
