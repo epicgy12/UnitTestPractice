@@ -20,3 +20,9 @@ configuration), you only need to repeat this command.
 `docker run -v "$(pwd)":/usr/src -it cpp-container`
 
 docker run -v `C:\Users\ipodc\OneDrive\Documents\GitHub\UnitTestPractice`:/usr/src -it cpp-container
+
+For running within the shell for gcov file creation
+
+docker run -v `C:\Users\ipodc\OneDrive\Documents\GitHub\UnitTestPractice`:/usr/src -it cpp-container sh
+
+./PasswordTest gcov

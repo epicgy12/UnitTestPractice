@@ -93,3 +93,19 @@ TEST(PasswordTest, mixed_empty_string)
 	ASSERT_EQ(false, my_password.has_mixed_case(""));
 }
 
+
+TEST(PasswordTest, set){
+	Password my_password;
+	ASSERT_EQ(true, my_password.authenticate("ChicoCA-95929"));
+}
+
+TEST(PasswordTest, defaultCheck){
+	Password my_password;
+	ASSERT_EQ(true, my_password.authenticate("ChicoCA-95929"));
+}
+
+TEST(PasswordTest, authenticateF){
+	Password my_password;
+	my_password.set("ChicoCA-95929");
+	ASSERT_EQ(false, my_password.authenticate("urMomdotCom"));
+}
